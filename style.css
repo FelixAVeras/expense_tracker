@@ -1,0 +1,75 @@
+/* style.css */
+body {
+    background-color: #fafafa; /* Fondo muy suave, casi blanco */
+    color: #333;
+    min-height: 100vh;
+}
+
+.max-width-container {
+    max-width: 960px; /* Un poco más estrecho para centrar mejor la atención */
+}
+
+/* Encabezado */
+.border-bottom {
+    border-bottom: 1px solid #eaeaea;
+}
+
+/* Cajas y Tarjetas: Sin sombras, solo bordes sutiles */
+.box {
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+    box-shadow: none !important;
+}
+
+/* Tarjeta de resumen */
+.summary-box {
+    padding: 2rem 1rem;
+}
+
+.summary-total {
+    font-size: 2.5rem;
+    color: #2c3e50; /* Gris oscuro azulado, no rojo chillón */
+    font-weight: 600;
+}
+
+/* Inputs más limpios */
+.minimal-input {
+    border-color: #e2e8f0;
+    box-shadow: none !important;
+    border-radius: 6px;
+    transition: border-color 0.2s;
+}
+
+.minimal-input:focus {
+    border-color: #94a3b8;
+}
+
+/* Tabla minimalista */
+.minimal-table td {
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Botones de acción invisibles hasta que pasas el ratón (opcional) o muy sutiles */
+.action-btn {
+    color: #cbd5e1;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 0.25rem 0.5rem;
+}
+
+.action-btn:hover {
+    color: #475569;
+}
+
+.action-btn.delete-btn:hover {
+    color: #ef4444; /* Solo se pone rojo al pasar el cursor */
+}
+
+/* Botón cancelar */
+.border-light {
+    border: 1px solid #eaeaea;
+}
