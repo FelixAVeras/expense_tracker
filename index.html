@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Gastos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container max-width-container py-5 px-4">
+        
+        <!-- Encabezado Minimalista -->
+        <header class="is-flex is-align-items-center is-justify-content-space-between mb-6 pb-4 border-bottom">
+            <div>
+                <h1 class="title is-4 has-text-dark mb-1">Control de Gastos</h1>
+                <p class="subtitle is-7 has-text-grey">Registro personal</p>
+            </div>
+            <div class="is-flex" style="gap: 0.5rem;">
+                <!-- Botones de Importar / Exportar -->
+                <button class="button is-small is-white border-light" id="btn-exportar">
+                    <i class="fa-solid fa-download has-text-grey mr-2"></i> Exportar
+                </button>
+                <button class="button is-small is-white border-light" id="btn-importar-ui">
+                    <i class="fa-solid fa-upload has-text-grey mr-2"></i> Importar
+                </button>
+                <!-- Input de archivo oculto -->
+                <input type="file" id="input-importar" accept=".json" style="display: none;">
+            </div>
+        </header>
+
+        <!-- Tarjeta de Resumen (Total) -->
+        <div class="box summary-box mb-6 has-text-centered">
+            <p class="heading is-size-7 has-text-grey mb-2">Gasto Total Acumulado</p>
+            <p class="title summary-total" id="total-gastos-display">$0.00</p>
+        </div>
+
+        <div class="columns is-variable is-6">
+            <!-- Columna Izquierda: Formulario -->
+            <div class="column is-4-desktop">
+                <h2 class="title is-6 has-text-grey-dark mb-4" id="form-title">Nuevo Registro</h2>
+                <form id="gasto-form">
+                    <input type="hidden" id="gasto-id" value="">
+
+                    <div class="field">
+                        <label class="label is-small has-text-grey">Descripción</label>
+                        <div class="control">
+                            <input class="input minimal-input" type="text" id="descripcion" placeholder="Ej. Supermercado, Internet..." required>
+                        </div>
+                    </div>
+                    
+                    <div class="field">
+                        <label class="label is-small has-text-grey">Monto ($)</label>
+                        <div class="control">
+                            <input class="input minimal-input" type="number" id="monto" placeholder="0.00" step="0.01" min="0" required>
+                        </div>
+                    </div>
+                    
+                    <div class="field mt-5">
+                        <div class="control">
+                            <button class="button is-dark is-fullwidth" type="submit" id="btn-submit">
+                                Guardar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="field is-hidden" id="btn-cancelar-container">
+                        <div class="control">
+                            <button class="button is-white has-text-grey is-fullwidth border-light" type="button" id="btn-cancelar">
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Columna Derecha: Tabla -->
+            <div class="column">
+                <h2 class="title is-6 has-text-grey-dark mb-4">Historial de Movimientos</h2>
+                <div class="table-container">
+                    <table class="table is-fullwidth minimal-table">
+                        <thead>
+                            <tr>
+                                <th class="has-text-grey has-text-weight-normal is-size-7">Fecha</th>
+                                <th class="has-text-grey has-text-weight-normal is-size-7">Descripción</th>
+                                <th class="has-text-right has-text-grey has-text-weight-normal is-size-7">Monto</th>
+                                <th class="has-text-centered has-text-grey has-text-weight-normal is-size-7">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-gastos">
+                            <!-- JS inyecta las filas aquí -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
