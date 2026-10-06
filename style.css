@@ -1,75 +1,225 @@
+/* Tipografía estructurada, moderna y firme */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+/* Paleta de colores: Tema Claro + Masculino + Colores Intensos */
+:root {
+    --bg-body: #f1f5f9;          /* Fondo gris azulado frío */
+    --surface-white: #ffffff;    /* Tarjetas blancas puras */
+    --text-main: #0f172a;        /* Texto principal pizarra profundo */
+    --text-muted: #64748b;       /* Textos secundarios y etiquetas */
+    --border-color: #cbd5e1;     /* Bordes marcados y definidos */
+    
+    /* Colores vibrantes de alto contraste */
+    --color-primary: #1e3a8a;    /* Azul cobalto profundo */
+    --color-accent: #2563eb;     /* Azul eléctrico */
+    --color-success: #059669;    /* Verde esmeralda intenso (guardar) */
+    --color-danger: #dc2626;     /* Rojo carmesí potente (eliminar) */
+}
+
 /* style.css */
 body {
-    background-color: #fafafa; /* Fondo muy suave, casi blanco */
-    color: #333;
+    background-color: var(--bg-body); 
+    color: var(--text-main);
     min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .max-width-container {
-    max-width: 960px; /* Un poco más estrecho para centrar mejor la atención */
+    max-width: 1050px;
 }
 
 /* Encabezado */
 .border-bottom {
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 2px solid var(--border-color);
 }
 
-/* Cajas y Tarjetas: Sin sombras, solo bordes sutiles */
+.title.is-4 {
+    color: var(--text-main) !important;
+    font-weight: 800;
+}
+
+.subtitle.is-7 {
+    color: var(--color-accent) !important;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* Cajas y Tarjetas: Blancas, con bordes definidos y sombra sutil */
 .box {
-    background-color: #ffffff;
-    border-radius: 8px;
-    border: 1px solid #eaeaea;
-    box-shadow: none !important;
+    background-color: var(--surface-white);
+    border-radius: 12px; 
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06) !important; 
 }
 
-/* Tarjeta de resumen */
+/* Tarjeta de Resumen Total: Azul cobalto con degradado ejecutivo vibrante */
 .summary-box {
-    padding: 2rem 1rem;
+    padding: 2.5rem 1.5rem; 
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #2563eb 100%);
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 12px 25px -5px rgba(37, 99, 235, 0.35) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Elemento gráfico de fondo */
+.summary-box::after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 180px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    backdrop-filter: blur(8px);
+}
+
+.summary-box .heading {
+    color: #93c5fd !important; 
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
 }
 
 .summary-total {
-    font-size: 2.5rem;
-    color: #2c3e50; /* Gris oscuro azulado, no rojo chillón */
-    font-weight: 600;
+    font-size: 3.5rem; 
+    color: #ffffff !important; 
+    font-weight: 800;
+    letter-spacing: -1px;
 }
 
-/* Inputs más limpios */
+/* Títulos y Etiquetas */
+.title.is-6 {
+    color: var(--text-main) !important;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.label {
+    color: var(--text-muted) !important;
+    font-weight: 700;
+}
+
+/* Inputs sólidos con encendido azul al enfocarse */
 .minimal-input {
-    border-color: #e2e8f0;
-    box-shadow: none !important;
-    border-radius: 6px;
-    transition: border-color 0.2s;
+    background-color: #f8fafc;
+    border: 2px solid var(--border-color); 
+    border-radius: 8px; 
+    padding: 1.1rem 1rem;
+    color: var(--text-main);
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.minimal-input::placeholder {
+    color: #94a3b8;
 }
 
 .minimal-input:focus {
-    border-color: #94a3b8;
+    border-color: var(--color-accent);
+    background-color: var(--surface-white);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15) !important; 
+    outline: none;
 }
 
-/* Tabla minimalista */
+/* Tabla estructurada con acento azul */
+.minimal-table th {
+    border-bottom: 2px solid var(--color-primary); 
+    color: var(--text-muted) !important;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1.2px;
+    font-weight: 800;
+    padding-bottom: 0.8rem;
+}
+
 .minimal-table td {
-    vertical-align: middle;
-    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle; 
+    border-bottom: 1px solid #e2e8f0; 
+    padding: 1rem 0.75rem;
+    color: var(--text-main);
+    font-weight: 600;
 }
 
-/* Botones de acción invisibles hasta que pasas el ratón (opcional) o muy sutiles */
+/* Botones de acción (Editar / Eliminar en la tabla) */
 .action-btn {
-    color: #cbd5e1;
-    background: transparent;
-    border: none;
+    color: var(--text-muted); 
+    background: #f1f5f9; 
+    border: 1px solid var(--border-color);
+    border-radius: 6px; 
     cursor: pointer;
-    transition: color 0.2s;
-    padding: 0.25rem 0.5rem;
+    transition: all 0.2s;
+    padding: 0.45rem 0.7rem;
+    margin: 0 0.2rem;
 }
 
 .action-btn:hover {
-    color: #475569;
+    color: #ffffff; 
+    background: var(--color-accent); 
+    border-color: var(--color-accent);
 }
 
 .action-btn.delete-btn:hover {
-    color: #ef4444; /* Solo se pone rojo al pasar el cursor */
+    color: #ffffff;
+    background: var(--color-danger); 
+    border-color: var(--color-danger);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
 }
 
-/* Botón cancelar */
-.border-light {
-    border: 1px solid #eaeaea;
+/* Botón principal Bulma (Guardar) - Verde Esmeralda Dinero */
+.button.is-dark {
+    background-color: var(--color-success);
+    color: #ffffff;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border: none;
+    height: 3rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3);
+}
+
+.button.is-dark:hover {
+    background-color: #047857;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(5, 150, 105, 0.4);
+}
+
+/* Botones secundarios (Importar / Exportar)[cite: 1] */
+.button.is-white.border-light {
+    background-color: var(--surface-white) !important;
+    color: var(--color-primary) !important;
+    border: 2px solid var(--border-color) !important;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.button.is-white.border-light:hover {
+    background-color: var(--color-primary) !important;
+    color: #ffffff !important;
+    border-color: var(--color-primary) !important;
+}
+
+.button.is-white.border-light:hover i {
+    color: #ffffff !important;
+}
+
+/* Botón Cancelar */
+#btn-cancelar {
+    background-color: #f1f5f9;
+    border: 2px solid var(--border-color);
+    color: var(--text-muted);
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+#btn-cancelar:hover {
+    background-color: #e2e8f0;
+    color: var(--text-main);
 }
